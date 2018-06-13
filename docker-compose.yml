@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  rabbitmq:
+    hostname: rabbitmq_broker
+    image: rabbitmq:latest
+    environment:
+        - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+        - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+
+  route_info_service:
+    build:
+      context: ./route_info_service
+      dockerfile: dockerfile
+    environment:
+        - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+        - RABBITMQ_USER=${RABBITMQ_DEFAULT_USER}
+        - RABBITMQ_PASS=${RABBITMQ_DEFAULT_PASS}
+  trip_info_service:
+    build:
+      context: ./trip_info_service
+      dockerfile: dockerfile
+    environment:
+        - TRIP_INFO_SERVICE_AMQP=amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672
+    ports:
+        - "8080:8080"
