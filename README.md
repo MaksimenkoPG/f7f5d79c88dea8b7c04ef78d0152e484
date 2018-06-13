@@ -14,8 +14,8 @@ It gets origin latitude/longitude and destination latitude/longitude from user t
 
 # Check
 - Check `http://localhost:8080/trip_info` with params:
--- o_latitude
--- o_longitude
--- d_latitude
--- d_longitude
+* o_latitude
+* o_longitude
+* d_latitude
+* d_longitude
 - For example: `http://localhost:8080/trip_info?o_latitude=55.737547&o_longitude=37.408085&d_latitude=55.753564&d_longitude=37.621085`
