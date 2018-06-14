@@ -1,6 +1,6 @@
 # WTF?
 Ruby + Go + RabbitMQ
-- Ruby service, backend, calc a distance between and route duration two points(origin latitude/longitude and destination latitude/longitude).
+- Ruby service, backend, calc a distance and route duration between two points(origin latitude/longitude and destination latitude/longitude).
 - Go service, frontend, has a HTTP interface for end users for calc trip cost.
 It gets origin latitude/longitude and destination latitude/longitude from user then gets the distance and route duration from Ruby service and then calcs trip cost.
 
